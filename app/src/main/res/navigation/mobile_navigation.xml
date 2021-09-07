@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/currentWeather">
+    <fragment
+        android:id="@+id/currentWeather"
+        android:name="com.example.forecast.ui.weather.current.CurrentWeather"
+        android:label="current_weather_fragment"
+        tools:layout="@layout/current_weather_fragment" />
+    <fragment
+        android:id="@+id/futureWeather"
+        android:name="com.example.forecast.ui.weather.future.list.FutureWeather"
+        android:label="future_weather_fragment"
+        tools:layout="@layout/future_weather_fragment" >
+        <action
+            android:id="@+id/actionDetail"
+            app:destination="@id/futureDetailWeatherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.forecast.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/futureDetailWeatherFragment"
+        android:name="com.example.forecast.ui.weather.future.detail.FutureDetailWeatherFragment"
+        android:label="future_detail_weather_fragment"
+        tools:layout="@layout/future_detail_weather_fragment" >
+        <argument
+            android:name="dateString"
+            app:argType="string" />
+    </fragment>
+</navigation>
